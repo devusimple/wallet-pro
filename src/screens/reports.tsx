@@ -13,7 +13,6 @@ import { getTransactionsByMonth } from "@/lib/transactions";
 import { format } from "date-fns";
 import { cn, formatCurrency, moneyCalculator } from "@/lib/utils";
 import { Record } from "@/types";
-import { Link } from "react-router";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import PDFDocument from "@/components/pdf-creator";
 
