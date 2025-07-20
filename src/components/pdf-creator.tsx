@@ -38,6 +38,7 @@ export default function PDFDocument({
               <Text>Transaction method: {t.method}</Text>
               <Text>Transaction category: {t.category}</Text>
               <Text>Transaction date: {format(t.date, "PPpp")}</Text>
+              <Text>Transaction note: {t.note}</Text>
               <Text>Transaction attachment: </Text>
               {t.attachment && (
                 <Image src={URL.createObjectURL(t.attachment)} />

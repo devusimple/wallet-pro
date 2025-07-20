@@ -139,7 +139,7 @@ export default function DetailsContent() {
                     alt=""
                   />
                 </DialogTrigger>
-                <DialogContent>
+                <DialogContent className='overflow-y-aut'>
                   <DialogHeader>
                     <DialogTitle>Attachment</DialogTitle>
                     <div className="">
