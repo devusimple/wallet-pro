@@ -64,6 +64,7 @@ export const categoryAmountCal = (c: string, transactions: Record[]) => {
   return amount;
 };
 
+/** 
 export const syncData = async () => {
   const unSyncedTransactions = await db.transactions
     .filter((obj) => obj.synced == false)
@@ -103,6 +104,49 @@ export const syncData = async () => {
           .modify({ synced: true });
       });
   });
+};
+*/
+
+export const syncData = async () => {
+  const unSyncedTransactions = await db.transactions
+    .filter((obj) => obj.synced === false)
+    .toArray();
+  
+  const uploadedData = [];
+  
+  for (const t of unSyncedTransactions) {
+    let publicUrl;
+    if (t.attachment) {
+      const path = `user-uploads/${t.attachment.name}`;
+      await supabase.storage.from("attachments").upload(path, t.attachment);
+      publicUrl = supabase.storage.from("attachments").getPublicUrl(path).data.publicUrl;
+    }
+    
+    uploadedData.push({
+      id: t.id,
+      amount: t.amount,
+      type: t.type,
+      category: t.category,
+      method: t.method,
+      date: t.date,
+      note: t.note,
+      synced: true,
+      attachment: publicUrl,
+      created_at: t.created_at,
+      updated_at: t.updated_at,
+    });
+  }
+  
+  if (uploadedData.length > 0) {
+    const { error } = await supabase.from("transactions").insert(uploadedData);
+    if (!error) {
+      await db.transactions.bulkPut(
+        unSyncedTransactions.map((t) => ({ ...t, synced: true }))
+      );
+    } else {
+      console.error("Sync insert error:", error);
+    }
+  }
 };
 
 export const exportData = async () => {
