@@ -489,15 +489,21 @@ export default function SettingScreen() {
               <p>Built with React.js & PWA</p>
             </div>
             <CardFooter className="flex items-center justify-center">
+              <a href={"https://www.facebook.com/huzzat77"} target="_blink">
               <Button size={"icon"} variant={"link"}>
                 <LucideFacebook />
               </Button>
+              </a>
+                <a href={"https://www.github.com/devusimple"} target="_blink">
               <Button size={"icon"} variant={"link"}>
                 <LucideGithub />
               </Button>
+              </a>
+                <a href={"https://wa.me/8801310289950"} target="_blink">
               <Button size={"icon"} variant={"link"}>
                 <LucideMessageCircle />
               </Button>
+              </a>
             </CardFooter>
           </CardContent>
         </Card>

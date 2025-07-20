@@ -175,10 +175,8 @@ export default function ReportsScreen() {
               variant="outline"
               className="w-full justify-start bg-transparent"
             >
-              <Link to={"/pdf"}>
                 <FileText className="h-4 w-4 mr-2" />
                 Current Month Summary
-              </Link>
             </Button>
             <Button
               variant="outline"
