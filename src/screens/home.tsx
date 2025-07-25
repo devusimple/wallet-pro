@@ -39,7 +39,7 @@ export default function HomeScreen() {
 
   return (
     <main className="min-h-screen">
-      <div className="sticky top-0 bg-white pb-2">
+      <div className="sticky top-0 bg-white pb-2 z-10">
         <MonthSwitcher setSelectDate={setSelectedDate} />
 
         {/* Summary Cards */}
@@ -80,7 +80,7 @@ export default function HomeScreen() {
       </div>
 
       {/* Recent Transactions */}
-      <div className="overflow-y-auto mb-24">
+      <div className="overflow-y-auto mb-32">
         {transactions?.length == 0 ? (
           <p className="text-center">No transaction found!</p>
         ) : (
