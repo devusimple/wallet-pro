@@ -80,7 +80,7 @@ export default function HomeScreen() {
       </div>
 
       {/* Recent Transactions */}
-      <div className="overflow-y-auto mb-32">
+      <div className="overflow-y-auto mb-32 -z-10">
         {transactions?.length == 0 ? (
           <p className="text-center">No transaction found!</p>
         ) : (

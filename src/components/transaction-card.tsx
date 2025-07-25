@@ -34,7 +34,7 @@ export default function TransactionCard({
       }}
       className="flex items-center gap-3 px-3 py-3 hover:bg-neutral-50 cursor-pointer"
     >
-      <div className="bg-primary text-accent p-2 rounded-full relative">
+      <div className="bg-primary text-accent p-2 rounded-full relative z-[9]">
         {transaction.category == "Shopping" ? (
           <LucideShoppingBag size={24} color="#fff" />
         ) : transaction.category == "Food and Dinning" ? (
